@@ -1,0 +1,3607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FORGE — Construction & Remodeling</title>
+
+  <meta
+    name="description"
+    content="Premium construction, remodeling and renovation services."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --orange: #ff6800;
+      --orange-light: #fff0e5;
+      --orange-dark: #e95700;
+
+      --black: #111111;
+      --dark: #181818;
+
+      --white: #ffffff;
+      --text: #161616;
+      --muted: #707070;
+
+      --glass: rgba(255, 255, 255, 0.62);
+      --glass-strong: rgba(255, 255, 255, 0.78);
+      --glass-border: rgba(255, 255, 255, 0.85);
+
+      --border: rgba(0, 0, 0, 0.07);
+
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 20px;
+
+      --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.07);
+
+      --shadow-hover:
+        0 25px 70px rgba(0, 0, 0, 0.11);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      background: #f5f5f3;
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    section {
+      position: relative;
+      padding: 115px 0;
+    }
+
+    .orange {
+      color: var(--orange);
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 0;
+      transition: padding 0.25s ease;
+    }
+
+    header.scrolled {
+      padding: 10px 0;
+    }
+
+    .navbar {
+      height: 66px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 8px 9px 8px 20px;
+
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.74);
+
+      border: 1px solid rgba(255, 255, 255, 0.9);
+
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.07);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 13px;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ff8533,
+          var(--orange)
+        );
+
+      box-shadow:
+        0 8px 25px rgba(255, 104, 0, 0.2);
+    }
+
+    .logo-icon svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      position: relative;
+
+      color: #4c4c4c;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      transition:
+        color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+
+    .nav-links a::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      bottom: -7px;
+
+      width: 0;
+      height: 2px;
+
+      border-radius: 5px;
+
+      background: var(--orange);
+
+      transition:
+        width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      padding: 13px 20px;
+
+      border-radius: 999px;
+
+      color: white;
+      background: var(--black);
+
+      font-size: 13px;
+      font-weight: 700;
+
+      transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--orange);
+
+      box-shadow:
+        0 10px 30px rgba(255, 104, 0, 0.25);
+    }
+
+    .menu-button {
+      display: none;
+
+      width: 43px;
+      height: 43px;
+
+      border: none;
+      border-radius: 50%;
+
+      color: white;
+      background: var(--black);
+    }
+
+    .menu-button svg {
+      width: 19px;
+    }
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    .mobile-panel {
+      display: none;
+
+      position: fixed;
+
+      z-index: 999;
+
+      top: 84px;
+      left: 14px;
+      right: 14px;
+
+      padding: 12px;
+
+      border-radius: 25px;
+
+      background:
+        rgba(255, 255, 255, 0.84);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.95);
+
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+
+      box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.13);
+    }
+
+    .mobile-panel.active {
+      display: grid;
+    }
+
+    .mobile-panel a {
+      padding: 15px;
+
+      border-radius: 14px;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .mobile-panel a:hover {
+      color: var(--orange);
+      background: var(--orange-light);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 900px;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(8, 8, 8, 0.93) 0%,
+          rgba(8, 8, 8, 0.76) 43%,
+          rgba(8, 8, 8, 0.24) 100%
+        ),
+        url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2200&q=90")
+        center / cover;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 620px;
+      height: 620px;
+
+      right: -260px;
+      top: 80px;
+
+      border-radius: 50%;
+
+      background: var(--orange);
+
+      filter: blur(140px);
+
+      opacity: 0.28;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 800px;
+
+      padding-top: 90px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      padding: 9px 14px;
+
+      border-radius: 999px;
+
+      background:
+        rgba(255, 255, 255, 0.09);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.19);
+
+      backdrop-filter: blur(20px);
+
+      font-size: 12px;
+      font-weight: 700;
+
+      margin-bottom: 28px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: var(--orange);
+
+      box-shadow:
+        0 0 0 5px rgba(255, 104, 0, 0.13);
+    }
+
+    .hero h1 {
+      font-family: "Manrope", sans-serif;
+
+      font-size:
+        clamp(50px, 7vw, 88px);
+
+      line-height: 0.96;
+
+      letter-spacing: -5px;
+
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: var(--orange);
+    }
+
+    .hero-description {
+      max-width: 590px;
+
+      margin-top: 28px;
+
+      color:
+        rgba(255, 255, 255, 0.73);
+
+      font-size: 17px;
+
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      margin-top: 35px;
+    }
+
+    .button {
+      min-height: 54px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      padding: 0 24px;
+
+      border: none;
+      border-radius: 999px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .button-orange {
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ff8533,
+          var(--orange)
+        );
+
+      box-shadow:
+        0 12px 35px rgba(255, 104, 0, 0.25);
+    }
+
+    .button-orange:hover {
+      background:
+        linear-gradient(
+          135deg,
+          #ff9147,
+          #ff6200
+        );
+
+      box-shadow:
+        0 15px 40px rgba(255, 104, 0, 0.32);
+    }
+
+    .button-glass {
+      color: white;
+
+      background:
+        rgba(255, 255, 255, 0.1);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.22);
+
+      backdrop-filter: blur(20px);
+    }
+
+    .button-glass:hover {
+      background:
+        rgba(255, 255, 255, 0.18);
+    }
+
+    .hero-bottom {
+      display: flex;
+      gap: 10px;
+
+      margin-top: 55px;
+    }
+
+    .hero-mini-card {
+      min-width: 160px;
+
+      padding: 17px 19px;
+
+      border-radius: 20px;
+
+      background:
+        rgba(255, 255, 255, 0.08);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.13);
+
+      backdrop-filter: blur(20px);
+    }
+
+    .hero-mini-card strong {
+      display: block;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 24px;
+    }
+
+    .hero-mini-card span {
+      display: block;
+
+      margin-top: 4px;
+
+      color:
+        rgba(255, 255, 255, 0.55);
+
+      font-size: 11px;
+    }
+
+    /* Floating card is STATIC now */
+
+    .floating-card {
+      position: absolute;
+
+      right: 7%;
+      bottom: 110px;
+
+      z-index: 4;
+
+      width: 270px;
+
+      padding: 18px;
+
+      border-radius: 24px;
+
+      background:
+        rgba(255, 255, 255, 0.11);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.19);
+
+      backdrop-filter: blur(25px);
+
+      box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.24);
+    }
+
+    .floating-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 16px;
+    }
+
+    .floating-label {
+      color:
+        rgba(255, 255, 255, 0.58);
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1.5px;
+    }
+
+    .floating-check {
+      width: 30px;
+      height: 30px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      color: white;
+      background: var(--orange);
+    }
+
+    .floating-check svg {
+      width: 15px;
+    }
+
+    .floating-card h3 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: 20px;
+
+      margin-bottom: 6px;
+    }
+
+    .floating-card p {
+      color:
+        rgba(255, 255, 255, 0.6);
+
+      font-size: 11px;
+
+      line-height: 1.5;
+    }
+
+    /* =========================
+       TRUST
+    ========================= */
+
+    .logo-strip {
+      padding: 24px 0;
+
+      background:
+        rgba(255, 255, 255, 0.72);
+
+      border-bottom:
+        1px solid #e8e8e5;
+    }
+
+    .logo-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 25px;
+    }
+
+    .trusted {
+      color: #999;
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1.8px;
+
+      font-weight: 700;
+    }
+
+    .company-list {
+      display: flex;
+      align-items: center;
+      gap: 45px;
+
+      color: #999;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 13px;
+
+      font-weight: 800;
+    }
+
+    /* =========================
+       SECTION HEAD
+    ========================= */
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      margin-bottom: 50px;
+    }
+
+    .eyebrow {
+      margin-bottom: 13px;
+
+      color: var(--orange);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+    }
+
+    .section-title {
+      font-family: "Manrope", sans-serif;
+
+      font-size:
+        clamp(38px, 5vw, 58px);
+
+      line-height: 1;
+
+      letter-spacing: -3px;
+
+      font-weight: 800;
+    }
+
+    .section-text {
+      max-width: 430px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.75;
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services {
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(255, 104, 0, 0.08),
+          transparent 30%
+        ),
+        #f5f5f3;
+    }
+
+    .services-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 16px;
+    }
+
+    .service {
+      position: relative;
+
+      min-height: 290px;
+
+      padding: 28px;
+
+      overflow: hidden;
+
+      border-radius: var(--radius-lg);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.84),
+          rgba(255,255,255,0.48)
+        );
+
+      border:
+        1px solid rgba(255,255,255,0.95);
+
+      backdrop-filter: blur(25px);
+
+      box-shadow:
+        0 20px 50px rgba(0,0,0,0.055);
+
+      transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .service:hover {
+      border-color:
+        rgba(255, 104, 0, 0.24);
+
+      box-shadow:
+        var(--shadow-hover);
+    }
+
+    .service::after {
+      content: "";
+
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      right: -70px;
+      bottom: -70px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255, 104, 0, 0.08);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 35px;
+
+      border-radius: 17px;
+
+      color: var(--orange);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.92),
+          rgba(255,239,228,0.75)
+        );
+
+      border:
+        1px solid rgba(255,104,0,0.1);
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .service h3 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: 19px;
+
+      margin-bottom: 10px;
+    }
+
+    .service p {
+      max-width: 300px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      line-height: 1.7;
+    }
+
+    .service-number {
+      position: absolute;
+
+      right: 23px;
+      top: 24px;
+
+      color:
+        rgba(0,0,0,0.07);
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 40px;
+
+      font-weight: 800;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        0.95fr 1.05fr;
+
+      gap: 80px;
+
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-image {
+      height: 590px;
+
+      object-fit: cover;
+
+      border-radius: 34px;
+    }
+
+    .about-glass {
+      position: absolute;
+
+      right: -20px;
+      bottom: 25px;
+
+      width: 205px;
+
+      padding: 23px;
+
+      border-radius: 24px;
+
+      background:
+        rgba(255,255,255,0.77);
+
+      border:
+        1px solid rgba(255,255,255,0.95);
+
+      backdrop-filter: blur(25px);
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    .about-glass strong {
+      display: block;
+
+      color: var(--orange);
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 43px;
+
+      line-height: 1;
+    }
+
+    .about-glass span {
+      display: block;
+
+      margin-top: 8px;
+
+      color: #777;
+
+      font-size: 11px;
+
+      line-height: 1.5;
+    }
+
+    .about-content .section-text {
+      margin-top: 25px;
+
+      max-width: 560px;
+    }
+
+    .checks {
+      display: grid;
+
+      gap: 13px;
+
+      margin: 30px 0;
+    }
+
+    .check {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      font-size: 13px;
+
+      font-weight: 600;
+    }
+
+    .check-icon {
+      width: 26px;
+      height: 26px;
+
+      flex: 0 0 26px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      color: var(--orange);
+
+      background:
+        var(--orange-light);
+    }
+
+    .check-icon svg {
+      width: 13px;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects {
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 90% 0%,
+          rgba(255,104,0,0.15),
+          transparent 30%
+        ),
+        #111;
+    }
+
+    .projects .section-text {
+      color: #858585;
+    }
+
+    .projects-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.25fr 0.75fr;
+
+      gap: 15px;
+    }
+
+    .project {
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 28px;
+
+      min-height: 280px;
+
+      background: #222;
+    }
+
+    .project-big {
+      min-height: 590px;
+    }
+
+    .project img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform 0.5s ease;
+    }
+
+    .project:hover img {
+      transform: scale(1.035);
+    }
+
+    .project::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          transparent 30%,
+          rgba(0,0,0,0.9)
+        );
+    }
+
+    .project-info {
+      position: absolute;
+
+      left: 25px;
+      right: 25px;
+      bottom: 25px;
+
+      z-index: 2;
+    }
+
+    .project-tag {
+      display: inline-flex;
+
+      padding: 7px 11px;
+
+      margin-bottom: 11px;
+
+      border-radius: 999px;
+
+      color: white;
+
+      background:
+        rgba(255,104,0,0.9);
+
+      backdrop-filter: blur(15px);
+
+      font-size: 10px;
+
+      font-weight: 700;
+    }
+
+    .project h3 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: 23px;
+
+      margin-bottom: 4px;
+    }
+
+    .project p {
+      color:
+        rgba(255,255,255,0.58);
+
+      font-size: 11px;
+    }
+
+    .projects-side {
+      display: grid;
+
+      gap: 15px;
+    }
+
+    /* =========================
+       PROCESS
+    ========================= */
+
+    .process {
+      background:
+        linear-gradient(
+          180deg,
+          #fff,
+          #f5f5f3
+        );
+    }
+
+    .process-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 14px;
+    }
+
+    .process-card {
+      position: relative;
+
+      padding: 28px;
+
+      min-height: 260px;
+
+      border-radius: 24px;
+
+      background:
+        rgba(255,255,255,0.64);
+
+      border:
+        1px solid rgba(255,255,255,0.95);
+
+      backdrop-filter: blur(22px);
+
+      box-shadow:
+        0 15px 45px rgba(0,0,0,0.05);
+
+      transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .process-card:hover {
+      border-color:
+        rgba(255,104,0,0.22);
+
+      box-shadow:
+        0 25px 60px rgba(0,0,0,0.08);
+    }
+
+    .process-number {
+      color: var(--orange);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+
+      margin-bottom: 50px;
+    }
+
+    .process-card h3 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: 18px;
+
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      line-height: 1.7;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta-section {
+      padding-top: 30px;
+      padding-bottom: 115px;
+
+      background: #f5f5f3;
+    }
+
+    .cta {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 70px;
+
+      border-radius: 34px;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ff8533,
+          #ff5d00
+        );
+
+      box-shadow:
+        0 30px 80px rgba(255,104,0,0.2);
+    }
+
+    .cta::before {
+      content: "";
+
+      position: absolute;
+
+      width: 480px;
+      height: 480px;
+
+      right: -170px;
+      top: -220px;
+
+      border-radius: 50%;
+
+      border:
+        80px solid rgba(255,255,255,0.09);
+    }
+
+    .cta::after {
+      content: "";
+
+      position: absolute;
+
+      width: 250px;
+      height: 250px;
+
+      right: 90px;
+      bottom: -190px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.09);
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 680px;
+    }
+
+    .cta h2 {
+      font-family: "Manrope", sans-serif;
+
+      font-size:
+        clamp(40px, 5vw, 62px);
+
+      line-height: 0.98;
+
+      letter-spacing: -3px;
+
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      max-width: 530px;
+
+      color:
+        rgba(255,255,255,0.78);
+
+      line-height: 1.7;
+
+      font-size: 14px;
+
+      margin-bottom: 30px;
+    }
+
+    .cta .button {
+      color: var(--black);
+
+      background: white;
+    }
+
+    .cta .button:hover {
+      background: #f4f4f4;
+
+      box-shadow:
+        0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      background: #f5f5f3;
+    }
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        0.8fr 1.2fr;
+
+      gap: 70px;
+
+      align-items: start;
+    }
+
+    .contact-info {
+      display: grid;
+
+      gap: 12px;
+
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+
+      gap: 13px;
+
+      padding: 15px;
+
+      border-radius: 18px;
+
+      background:
+        rgba(255,255,255,0.64);
+
+      border:
+        1px solid rgba(255,255,255,0.9);
+
+      backdrop-filter: blur(20px);
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .contact-item:hover {
+      border-color:
+        rgba(255,104,0,0.23);
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+
+      flex: 0 0 44px;
+
+      display: grid;
+      place-items: center;
+
+      color: var(--orange);
+
+      border-radius: 14px;
+
+      background:
+        var(--orange-light);
+    }
+
+    .contact-icon svg {
+      width: 18px;
+    }
+
+    .contact-item small {
+      display: block;
+
+      color: #999;
+
+      font-size: 10px;
+
+      margin-bottom: 3px;
+    }
+
+    .contact-item strong {
+      font-size: 13px;
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .contact-form {
+      padding: 30px;
+
+      border-radius: 30px;
+
+      background:
+        rgba(255,255,255,0.65);
+
+      border:
+        1px solid rgba(255,255,255,0.9);
+
+      backdrop-filter: blur(25px);
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,0.06);
+    }
+
+    .form-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 14px;
+    }
+
+    .form-group {
+      display: grid;
+
+      gap: 7px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 11px;
+
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+
+      border:
+        1px solid rgba(0,0,0,0.09);
+
+      background:
+        rgba(255,255,255,0.62);
+
+      outline: none;
+
+      border-radius: 15px;
+
+      padding: 14px;
+
+      color: var(--text);
+
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color:
+        rgba(255,104,0,0.55);
+
+      background: white;
+
+      box-shadow:
+        0 0 0 4px rgba(255,104,0,0.07);
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+
+      margin-top: 16px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      position: relative;
+
+      overflow: hidden;
+
+      color: white;
+
+      background: #101010;
+
+      padding: 70px 0 25px;
+    }
+
+    footer::before {
+      content: "";
+
+      position: absolute;
+
+      width: 450px;
+      height: 450px;
+
+      right: -200px;
+      top: -250px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,104,0,0.12);
+
+      filter: blur(90px);
+    }
+
+    .footer-grid {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns:
+        1.6fr 1fr 1fr 1fr;
+
+      gap: 45px;
+
+      padding-bottom: 50px;
+    }
+
+    .footer-brand p {
+      max-width: 310px;
+
+      margin-top: 18px;
+
+      color: #777;
+
+      font-size: 12px;
+
+      line-height: 1.7;
+    }
+
+    .footer-title {
+      margin-bottom: 18px;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 12px;
+    }
+
+    .footer-links {
+      display: grid;
+
+      gap: 11px;
+    }
+
+    .footer-links a {
+      color: #777;
+
+      font-size: 12px;
+
+      transition:
+        color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--orange);
+    }
+
+    .footer-bottom {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding-top: 22px;
+
+      border-top:
+        1px solid rgba(255,255,255,0.08);
+
+      color: #555;
+
+      font-size: 10px;
+    }
+
+    /* =========================
+       REVEAL
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform:
+        translateY(18px);
+
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1050px) {
+
+      .nav-links {
+        gap: 18px;
+      }
+
+      .services-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .about-grid {
+        gap: 50px;
+      }
+
+      .floating-card {
+        right: 25px;
+      }
+    }
+
+    @media (max-width: 800px) {
+
+      .container {
+        width:
+          min(100% - 28px, 1180px);
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .menu-button {
+        display: grid;
+        place-items: center;
+      }
+
+      .hero {
+        min-height: 830px;
+      }
+
+      .hero h1 {
+        font-size:
+          clamp(45px, 12vw, 70px);
+
+        letter-spacing: -3px;
+      }
+
+      .floating-card {
+        display: none;
+      }
+
+      .logo-strip-inner {
+        display: block;
+      }
+
+      .company-list {
+        flex-wrap: wrap;
+
+        margin-top: 15px;
+
+        gap: 16px 25px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-text {
+        margin-top: 18px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        height: 460px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-big {
+        min-height: 430px;
+      }
+
+      .projects-side {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 560px) {
+
+      header {
+        padding: 12px 0;
+      }
+
+      .navbar {
+        height: 59px;
+      }
+
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .hero {
+        min-height: 800px;
+
+        background-position:
+          62% center;
+      }
+
+      .hero-content {
+        padding-top: 75px;
+      }
+
+      .hero h1 {
+        font-size: 46px;
+
+        letter-spacing: -2.5px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        max-width: 300px;
+      }
+
+      .hero-bottom {
+        margin-top: 40px;
+      }
+
+      .hero-mini-card {
+        min-width: 0;
+
+        flex: 1;
+
+        padding: 12px 10px;
+      }
+
+      .hero-mini-card strong {
+        font-size: 17px;
+      }
+
+      .hero-mini-card span {
+        font-size: 9px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service {
+        min-height: 250px;
+      }
+
+      .section-title {
+        letter-spacing: -2px;
+      }
+
+      .about-image {
+        height: 390px;
+      }
+
+      .about-glass {
+        right: 12px;
+        bottom: 15px;
+      }
+
+      .projects-side {
+        grid-template-columns: 1fr;
+      }
+
+      .project,
+      .project-big {
+        min-height: 320px;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        padding: 40px 25px;
+      }
+
+      .cta h2 {
+        letter-spacing: -2px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .contact-form {
+        padding: 21px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 7px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header id="header">
+
+    <div class="container">
+
+      <nav class="navbar">
+
+        <a href="#" class="logo">
+
+          <span class="logo-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path d="M3 21h18"/>
+              <path d="M5 21V9l7-5 7 5v12"/>
+              <path d="M9 21v-6h6v6"/>
+            </svg>
+
+          </span>
+
+          FORGE
+
+        </a>
+
+
+        <div class="nav-links">
+
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
+
+        </div>
+
+
+        <a
+          href="#contact"
+          class="nav-cta"
+        >
+
+          Get a Quote
+
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M5 12h14"/>
+            <path d="m13 6 6 6-6 6"/>
+          </svg>
+
+        </a>
+
+
+        <button
+          class="menu-button"
+          id="menuButton"
+          aria-label="Open menu"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 7h16"/>
+            <path d="M4 12h16"/>
+            <path d="M4 17h16"/>
+          </svg>
+
+        </button>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- MOBILE MENU -->
+
+  <div
+    class="mobile-panel"
+    id="mobilePanel"
+  >
+
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+
+  </div>
+
+
+  <!-- =========================
+       MAIN
+  ========================= -->
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="hero-content reveal">
+
+          <div class="hero-badge">
+
+            <span class="badge-dot"></span>
+
+            Construction · Remodeling · Renovation
+
+          </div>
+
+
+          <h1>
+
+            Building the
+
+            <span>future.</span>
+
+            One project at a time.
+
+          </h1>
+
+
+          <p class="hero-description">
+
+            Premium construction and remodeling services
+            for residential and commercial spaces.
+            Built with precision, quality and attention to detail.
+
+          </p>
+
+
+          <div class="hero-actions">
+
+            <a
+              href="#contact"
+              class="button button-orange"
+            >
+
+              Start Your Project
+
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14"/>
+                <path d="m13 6 6 6-6 6"/>
+              </svg>
+
+            </a>
+
+
+            <a
+              href="#projects"
+              class="button button-glass"
+            >
+
+              Explore Projects
+
+            </a>
+
+          </div>
+
+
+          <div class="hero-bottom">
+
+            <div class="hero-mini-card">
+
+              <strong>12+</strong>
+
+              <span>
+                Years Experience
+              </span>
+
+            </div>
+
+
+            <div class="hero-mini-card">
+
+              <strong>250+</strong>
+
+              <span>
+                Projects
+              </span>
+
+            </div>
+
+
+            <div class="hero-mini-card">
+
+              <strong>98%</strong>
+
+              <span>
+                Satisfaction
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- STATIC GLASS CARD -->
+
+        <div class="floating-card">
+
+          <div class="floating-card-top">
+
+            <span class="floating-label">
+              Current Project
+            </span>
+
+            <span class="floating-check">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path d="m5 12 4 4L19 6"/>
+              </svg>
+
+            </span>
+
+          </div>
+
+          <h3>
+            Modern Residence
+          </h3>
+
+          <p>
+            Full renovation · Interior · Exterior
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TRUST -->
+
+    <div class="logo-strip">
+
+      <div class="container">
+
+        <div class="logo-strip-inner">
+
+          <div class="trusted">
+            Trusted by homeowners & businesses
+          </div>
+
+          <div class="company-list">
+
+            <span>URBANCO</span>
+            <span>NORTHLINE</span>
+            <span>MODERNHAUS</span>
+            <span>HOMEBASE</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- SERVICES -->
+
+    <section
+      class="services"
+      id="services"
+    >
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              What We Do
+            </div>
+
+            <h2 class="section-title">
+
+              Everything you<br>
+
+              need to
+              <span class="orange">
+                build.
+              </span>
+
+            </h2>
+
+          </div>
+
+          <p class="section-text">
+
+            From small renovations to complete construction,
+            our team handles every stage of the project.
+
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+          <article class="service reveal">
+
+            <span class="service-number">
+              01
+            </span>
+
+            <div class="service-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+              >
+                <path d="M3 21h18"/>
+                <path d="M5 21V9l7-5 7 5v12"/>
+                <path d="M9 21v-6h6v6"/>
+              </svg>
+
+            </div>
+
+            <h3>
+              New Construction
+            </h3>
+
+            <p>
+              Ground-up construction with complete
+              project management from foundation to finish.
+            </p>
+
+          </article>
+
+
+          <article class="service reveal">
+
+            <span class="service-number">
+              02
+            </span>
+
+            <div class="service-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+              >
+                <path d="M4 20h16"/>
+                <path d="M6 20V9"/>
+                <path d="M18 20V9"/>
+                <path d="M3 9h18"/>
+                <path d="M6 9l3-5h6l3 5"/>
+              </svg>
+
+            </div>
+
+            <h3>
+              Remodeling
+            </h3>
+
+            <p>
+              Kitchens, bathrooms, basements and full
+              home renovations designed around your lifestyle.
+            </p>
+
+          </article>
+
+
+          <article class="service reveal">
+
+            <span class="service-number">
+              03
+            </span>
+
+            <div class="service-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+              >
+                <rect
+                  x="4"
+                  y="5"
+                  width="16"
+                  height="15"
+                  rx="2"
+                />
+                <path d="M8 5V3"/>
+                <path d="M16 5V3"/>
+                <path d="M8 11h8"/>
+                <path d="M8 15h5"/>
+              </svg>
+
+            </div>
+
+            <h3>
+              Commercial
+            </h3>
+
+            <p>
+              Construction and renovation for offices,
+              retail spaces, restaurants and businesses.
+            </p>
+
+          </article>
+
+
+          <article class="service reveal">
+
+            <span class="service-number">
+              04
+            </span>
+
+            <div class="service-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+              >
+                <path d="m4 20 5-5"/>
+                <path d="m14 6 4-4 4 4-4 4"/>
+                <path d="m9 15 5-5"/>
+              </svg>
+
+            </div>
+
+            <h3>
+              Interior Finishing
+            </h3>
+
+            <p>
+              Drywall, painting, flooring, trim,
+              doors and detailed finishing work.
+            </p>
+
+          </article>
+
+
+          <article class="service reveal">
+
+            <span class="service-number">
+              05
+            </span>
+
+            <div class="service-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+              >
+                <path d="M4 21V9l8-6 8 6v12"/>
+                <path d="M8 21v-6h8v6"/>
+              </svg>
+
+            </div>
+
+            <h3>
+              Exterior Work
+            </h3>
+
+            <p>
+              Roofing, siding, decks, fences and
+              exterior improvements built to last.
+            </p>
+
+          </article>
+
+
+          <article class="service reveal">
+
+            <span class="service-number">
+              06
+            </span>
+
+            <div class="service-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="8"
+                />
+                <path d="M12 8v4l3 2"/>
+              </svg>
+
+            </div>
+
+            <h3>
+              Project Management
+            </h3>
+
+            <p>
+              Organized schedules, clear communication
+              and professional project coordination.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section
+      class="about"
+      id="about"
+    >
+
+      <div class="container">
+
+        <div class="about-grid">
+
+
+          <div class="about-visual reveal">
+
+            <img
+              class="about-image"
+              src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=90"
+              alt="Construction professionals working on a project"
+            >
+
+
+            <div class="about-glass">
+
+              <strong>
+                12+
+              </strong>
+
+              <span>
+                Years of experience building
+                spaces that last.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="about-content reveal">
+
+            <div class="eyebrow">
+              Why Choose Us
+            </div>
+
+            <h2 class="section-title">
+
+              Built differently.<br>
+
+              <span class="orange">
+                Built better.
+              </span>
+
+            </h2>
+
+
+            <p class="section-text">
+
+              We combine skilled craftsmanship with
+              modern construction methods to create
+              spaces that look great and perform for years.
+
+            </p>
+
+
+            <div class="checks">
+
+
+              <div class="check">
+
+                <span class="check-icon">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  >
+                    <path d="m5 12 4 4L19 6"/>
+                  </svg>
+
+                </span>
+
+                Experienced construction professionals
+
+              </div>
+
+
+              <div class="check">
+
+                <span class="check-icon">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  >
+                    <path d="m5 12 4 4L19 6"/>
+                  </svg>
+
+                </span>
+
+                Transparent pricing
+
+              </div>
+
+
+              <div class="check">
+
+                <span class="check-icon">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  >
+                    <path d="m5 12 4 4L19 6"/>
+                  </svg>
+
+                </span>
+
+                Premium materials
+
+              </div>
+
+
+              <div class="check">
+
+                <span class="check-icon">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  >
+                    <path d="m5 12 4 4L19 6"/>
+                  </svg>
+
+                </span>
+
+                Clean and organized job sites
+
+              </div>
+
+
+            </div>
+
+
+            <a
+              href="#contact"
+              class="button button-orange"
+            >
+
+              Work With Us
+
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14"/>
+                <path d="m13 6 6 6-6 6"/>
+              </svg>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section
+      class="projects"
+      id="projects"
+    >
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              Selected Work
+            </div>
+
+            <h2 class="section-title">
+
+              Projects that<br>
+
+              speak
+              <span class="orange">
+                for us.
+              </span>
+
+            </h2>
+
+          </div>
+
+          <p class="section-text">
+
+            A look at some of the residential and
+            commercial spaces we've helped transform.
+
+          </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+          <article
+            class="project project-big reveal"
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90"
+              alt="Luxury modern home interior"
+            >
+
+            <div class="project-info">
+
+              <span class="project-tag">
+                Residential
+              </span>
+
+              <h3>
+                Modern Hillside Residence
+              </h3>
+
+              <p>
+                Complete renovation · Interior & Exterior
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <div class="projects-side">
+
+
+            <article
+              class="project reveal"
+            >
+
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=90"
+                alt="Modern house exterior"
+              >
+
+              <div class="project-info">
+
+                <span class="project-tag">
+                  New Build
+                </span>
+
+                <h3>
+                  Oak House
+                </h3>
+
+                <p>
+                  Ground-up construction
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article
+              class="project reveal"
+            >
+
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=90"
+                alt="Modern commercial office"
+              >
+
+              <div class="project-info">
+
+                <span class="project-tag">
+                  Commercial
+                </span>
+
+                <h3>
+                  Northline Office
+                </h3>
+
+                <p>
+                  Interior construction
+                </p>
+
+              </div>
+
+            </article>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROCESS -->
+
+    <section
+      class="process"
+      id="process"
+    >
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div>
+
+            <div class="eyebrow">
+              Our Process
+            </div>
+
+            <h2 class="section-title">
+
+              From idea<br>
+
+              to
+              <span class="orange">
+                reality.
+              </span>
+
+            </h2>
+
+          </div>
+
+          <p class="section-text">
+
+            A simple and transparent process designed
+            to make construction easier for you.
+
+          </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+          <article class="process-card reveal">
+
+            <div class="process-number">
+              01 / DISCOVER
+            </div>
+
+            <h3>
+              Tell us your idea
+            </h3>
+
+            <p>
+              We learn about your goals, property,
+              budget and timeline.
+            </p>
+
+          </article>
+
+
+          <article class="process-card reveal">
+
+            <div class="process-number">
+              02 / PLAN
+            </div>
+
+            <h3>
+              Build the plan
+            </h3>
+
+            <p>
+              We create the scope, estimate,
+              materials and construction schedule.
+            </p>
+
+          </article>
+
+
+          <article class="process-card reveal">
+
+            <div class="process-number">
+              03 / BUILD
+            </div>
+
+            <h3>
+              Start construction
+            </h3>
+
+            <p>
+              Our team manages the project
+              while keeping you informed.
+            </p>
+
+          </article>
+
+
+          <article class="process-card reveal">
+
+            <div class="process-number">
+              04 / DELIVER
+            </div>
+
+            <h3>
+              Enjoy the result
+            </h3>
+
+            <p>
+              We finish every detail and
+              hand over your completed space.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta-section">
+
+      <div class="container">
+
+        <div class="cta reveal">
+
+          <div class="cta-content">
+
+            <h2>
+              Have a project<br>
+              in mind?
+            </h2>
+
+            <p>
+              Let's turn your vision into a space
+              you're proud of. Tell us what you're
+              planning and get a free project estimate.
+            </p>
+
+            <a
+              href="#contact"
+              class="button"
+            >
+
+              Get a Free Estimate
+
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14"/>
+                <path d="m13 6 6 6-6 6"/>
+              </svg>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section
+      class="contact"
+      id="contact"
+    >
+
+      <div class="container">
+
+        <div class="contact-grid">
+
+
+          <div class="reveal">
+
+            <div class="eyebrow">
+              Let's Talk
+            </div>
+
+            <h2 class="section-title">
+
+              Start your<br>
+
+              <span class="orange">
+                project.
+              </span>
+
+            </h2>
+
+            <p
+              class="section-text"
+              style="margin-top:22px;"
+            >
+
+              Tell us a little about your project.
+              We'll contact you to discuss the next steps.
+
+            </p>
+
+
+            <div class="contact-info">
+
+
+              <a
+                href="tel:+12125550199"
+                class="contact-item"
+              >
+
+                <span class="contact-icon">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  >
+                    <path d="M22 16.9v3a2 2 0 0 1-2.2 2
+                    19.8 19.8 0 0 1-8.6-3.1
+                    19.5 19.5 0 0 1-6-6
+                    19.8 19.8 0 0 1-3.1-8.6
+                    A2 2 0 0 1 4.1 2h3
+                    a2 2 0 0 1 2 1.7
+                    c.1 1 .4 2 .7 2.9
+                    a2 2 0 0 1-.5 2.1L8 10
+                    a16 16 0 0 0 6 6l1.3-1.3
+                    a2 2 0 0 1 2.1-.5
+                    c.9.3 1.9.6 2.9.7
+                    A2 2 0 0 1 22 16.9z"/>
+                  </svg>
+
+                </span>
+
+                <span>
+
+                  <small>
+                    Phone
+                  </small>
+
+                  <strong>
+                    (212) 555-0199
+                  </strong>
+
+                </span>
+
+              </a>
+
+
+              <a
+                href="mailto:hello@forgeconstruction.com"
+                class="contact-item"
+              >
+
+                <span class="contact-icon">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  >
+                    <rect
+                      x="3"
+                      y="5"
+                      width="18"
+                      height="14"
+                      rx="2"
+                    />
+
+                    <path d="m3 7 9 6 9-6"/>
+
+                  </svg>
+
+                </span>
+
+                <span>
+
+                  <small>
+                    Email
+                  </small>
+
+                  <strong>
+                    hello@forgeconstruction.com
+                  </strong>
+
+                </span>
+
+              </a>
+
+
+              <div class="contact-item">
+
+                <span class="contact-icon">
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  >
+                    <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/>
+                    <circle
+                      cx="12"
+                      cy="10"
+                      r="2.5"
+                    />
+                  </svg>
+
+                </span>
+
+                <span>
+
+                  <small>
+                    Service Area
+                  </small>
+
+                  <strong>
+                    New York & Surrounding Areas
+                  </strong>
+
+                </span>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+          <form
+            class="contact-form reveal"
+            id="contactForm"
+          >
+
+            <div class="form-grid">
+
+
+              <div class="form-group">
+
+                <label for="name">
+                  Full Name
+                </label>
+
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="John Smith"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="phone">
+                  Phone
+                </label>
+
+                <input
+                  id="phone"
+                  type="tel"
+                  placeholder="(555) 123-4567"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="email">
+                  Email
+                </label>
+
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="john@example.com"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="service">
+                  Service
+                </label>
+
+                <select
+                  id="service"
+                  required
+                >
+
+                  <option value="">
+                    Select service
+                  </option>
+
+                  <option>
+                    New Construction
+                  </option>
+
+                  <option>
+                    Remodeling
+                  </option>
+
+                  <option>
+                    Commercial
+                  </option>
+
+                  <option>
+                    Interior Finishing
+                  </option>
+
+                  <option>
+                    Exterior Work
+                  </option>
+
+                  <option>
+                    Other
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group full">
+
+                <label for="message">
+                  Tell us about your project
+                </label>
+
+                <textarea
+                  id="message"
+                  placeholder="Tell us what you're planning..."
+                  required
+                ></textarea>
+
+              </div>
+
+
+            </div>
+
+
+            <button
+              type="submit"
+              class="button button-orange form-submit"
+            >
+
+              Request Free Estimate
+
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14"/>
+                <path d="m13 6 6 6-6 6"/>
+              </svg>
+
+            </button>
+
+          </form>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+          <a
+            href="#"
+            class="logo"
+          >
+
+            <span class="logo-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path d="M3 21h18"/>
+                <path d="M5 21V9l7-5 7 5v12"/>
+                <path d="M9 21v-6h6v6"/>
+              </svg>
+
+            </span>
+
+            FORGE
+
+          </a>
+
+          <p>
+            Premium construction and remodeling
+            services built around craftsmanship,
+            quality and trust.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Company
+          </div>
+
+          <div class="footer-links">
+
+            <a href="#about">
+              About
+            </a>
+
+            <a href="#services">
+              Services
+            </a>
+
+            <a href="#projects">
+              Projects
+            </a>
+
+            <a href="#process">
+              Process
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Services
+          </div>
+
+          <div class="footer-links">
+
+            <a href="#services">
+              Construction
+            </a>
+
+            <a href="#services">
+              Remodeling
+            </a>
+
+            <a href="#services">
+              Commercial
+            </a>
+
+            <a href="#services">
+              Exterior
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Contact
+          </div>
+
+          <div class="footer-links">
+
+            <a href="tel:+12125550199">
+              (212) 555-0199
+            </a>
+
+            <a href="mailto:hello@forgeconstruction.com">
+              hello@forgeconstruction.com
+            </a>
+
+            <a href="#contact">
+              Get Estimate
+            </a>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 FORGE Construction.
+          All rights reserved.
+        </span>
+
+        <span>
+          Built to last.
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* HEADER */
+
+    const header =
+      document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
+    });
+
+
+    /* MOBILE MENU */
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const mobilePanel =
+      document.getElementById("mobilePanel");
+
+    menuButton.addEventListener("click", () => {
+
+      mobilePanel.classList.toggle("active");
+
+      document.body.classList.toggle("menu-open");
+
+    });
+
+
+    document
+      .querySelectorAll(".mobile-panel a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          mobilePanel.classList.remove("active");
+
+          document.body.classList.remove("menu-open");
+
+        });
+
+      });
+
+
+    /* SCROLL REVEAL */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const revealObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add(
+                "visible"
+              );
+
+              revealObserver.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+    revealElements.forEach(element => {
+
+      revealObserver.observe(element);
+
+    });
+
+
+    /* CONTACT FORM */
+
+    const contactForm =
+      document.getElementById("contactForm");
+
+    contactForm.addEventListener(
+      "submit",
+      event => {
+
+        event.preventDefault();
+
+        const button =
+          contactForm.querySelector(
+            "button"
+          );
+
+        const originalHTML =
+          button.innerHTML;
+
+        button.innerHTML = `
+          Request Sent
+
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <path d="m5 12 4 4L19 6"/>
+          </svg>
+        `;
+
+        button.style.background =
+          "#111111";
+
+        contactForm.reset();
+
+        setTimeout(() => {
+
+          button.innerHTML =
+            originalHTML;
+
+          button.style.background =
+            "";
+
+        }, 3000);
+
+      }
+    );
+
+
+    /* SMOOTH ANCHORS */
+
+    document
+      .querySelectorAll('a[href^="#"]')
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          event => {
+
+            const href =
+              link.getAttribute("href");
+
+            if (
+              !href ||
+              href === "#"
+            ) {
+              return;
+            }
+
+            const target =
+              document.querySelector(href);
+
+            if (!target) {
+              return;
+            }
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
+          }
+        );
+
+      });
+
+  </script>
+
+</body>
+</html>
